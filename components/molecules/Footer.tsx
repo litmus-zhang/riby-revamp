@@ -85,6 +85,17 @@ function Footer(props: Props) {
                 }
 
                 </div>
+                <div>
+                    <form>
+                        <div className='flex items-center rounded-full first-letter justify-between overflow-hidden'>
+                            <input
+                                className='pl-4 py-2 bg-gray-600 text-black'
+                                placeholder='Email Address'
+                            />
+                            <button className='bg-red-800 w-fit cursor-pointer p-2'>Subscribe</button>
+                        </div>
+                    </form>
+                </div>
                 </div>
             
         </footer>

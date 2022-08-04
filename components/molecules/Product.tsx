@@ -6,21 +6,21 @@ import {createClient} from "contentful"
 //zhzgv7x4ee2o
 //z1vAzM27q9zu-LsrRgAiZf-O0up5ShDgiAs5_TtKdHw
 
-export async function getStaticProps(params:type) {
-    const client = createClient({
-        space: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    })
+// export async function getStaticProps() {
+//     const client = createClient({
+//         // space: process.env.CONTENTFUL_SPACE_ID,
+//         // accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+//     })
 
 
-    const response = await client.getEntries({content_type: 'product' })
+//     const response = await client.getEntries({content_type: 'product' })
 
-    return {
-        props: {
-            products: response.items
-        }
-    }
-}
+//     return {
+//         props: {
+//             products: response.items
+//         }
+//     }
+// }
 
 
 
@@ -56,10 +56,10 @@ const PRODUCTS = [
     },
 ]
 
-function Product({products}) {
+function Product( ) {
     // const {} = props
 
-    console.log(products)
+    console.log("Space Id: ", process.env.CONTENTFUL_SPACE_ID)
     return (
         <section className='bg-red-900 p-2 pb-8'>
             <SectionHeader text="Our Products" />
