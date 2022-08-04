@@ -1,6 +1,26 @@
 import React from 'react'
 import ProductCard from '../atoms/productCard'
 import SectionHeader from '../atoms/SectionHeader'
+import {createClient} from "contentful"
+
+//zhzgv7x4ee2o
+//z1vAzM27q9zu-LsrRgAiZf-O0up5ShDgiAs5_TtKdHw
+
+export async function getStaticProps(params:type) {
+    const client = createClient({
+        space: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    })
+
+
+    const response = await client.getEntries({content_type: 'product' })
+
+    return {
+        props: {
+            products: response.items
+        }
+    }
+}
 
 
 
@@ -36,9 +56,10 @@ const PRODUCTS = [
     },
 ]
 
-function Product(props: Props) {
-    const {} = props
+function Product({products}) {
+    // const {} = props
 
+    console.log(products)
     return (
         <section className='bg-red-900 p-2 pb-8'>
             <SectionHeader text="Our Products" />
