@@ -1,8 +1,9 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
 const Airtable = require('airtable');
 const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY,}).base(process.env.AIRTABLE_BASE_ID);
 
 
-export default async function NewEmail(req: any, res: any)
+export default async function NewEmail(req: NextApiRequest, res: NextApiResponse) 
 {
   const {Email} = req.body
   try {

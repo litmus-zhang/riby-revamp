@@ -8,7 +8,10 @@ import Footer from '../components/molecules/Footer'
 import Hero from '../components/molecules/Hero'
 import Product from '../components/molecules/Product'
 
-const Home: NextPage = () => {
+const Home: NextPage = () =>
+{
+
+  
   return (
     <div>
       <Head>
@@ -17,6 +20,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className='w-full h-fit'>
+
         <Header />
         <Hero />
         <Product />

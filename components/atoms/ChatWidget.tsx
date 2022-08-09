@@ -10,7 +10,7 @@ function ChatWidget(props: Props) {
 
     return (
         <a href={Link} target="_blank" rel="noreferrer"  className='fixed  bottom-3 right-2 bg-green-500 text-white p-3 w-fit rounded-full flex items-center cursor-pointer gap-2'>
-            Let`s chat on Whatsapp <BsWhatsapp />
+           Message us on Whatsapp <BsWhatsapp />
         </a>
     )
 }
