@@ -1,52 +1,42 @@
 import React from 'react'
 import ProductCard from '../atoms/productCard'
 import SectionHeader from '../atoms/SectionHeader'
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
-import { client } from '../../utils/GetContents'
+import type { GetStaticProps, NextPage } from "next";
+import ContentService from "../../src/utils/content-service";
+import { IProductFields } from '../../src/@types/contentful';
 
 
 
+interface Props {
+    products: IProductFields[];
+  }
 
 export const getStaticProps: GetStaticProps= async (context)  =>  {
-  
 
-    const res = await client.getEntries({
-        content_type: "product"
-    })
+    const products = (await ContentService.instance.getEntriesByType<IProductFields>("product")).map((entry) => entry.fields)
+
+    console.log(products)
+    
     return {
         props: {
-           products: res.items
-       }
-   }
-
+            products
+        },
+        revalidate: 10
+    }
 }
 
-interface Product
+
+const Product : NextPage<Props> = ({products}) =>
 {
-    name: string
-
-}
-
-interface Props
-{
-    products: Product[]
- }
-
-
-
-function Product(props: Props ) {
-    // const {} = props/
-
-
-console.log(props)
+    console.log(products)
 
     return (
         <section className='bg-red-900 p-2 pb-8'>
             <SectionHeader text="Our Products" />
             <div className='flex flex-wrap gap-4'>
                 PRODUCTS
-            {/* {
-                PRODUCTS.map((product, index) => {
+                {/* {
+                products.map((product, index) => {
                     return <ProductCard key={index} {...product} />
                 }
                 )
@@ -57,8 +47,4 @@ console.log(props)
 }
 
 export default Product
-function GetStaticProps()
-{
-    throw new Error('Function not implemented.')
-}
 
