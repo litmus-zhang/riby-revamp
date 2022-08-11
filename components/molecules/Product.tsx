@@ -11,7 +11,7 @@ interface Props {
     products: IProductFields[];
   }
 
-export const getStaticProps: GetStaticProps= async (context)  =>  {
+export const getStaticProps: GetStaticProps= async ()  =>  {
 
     const products = (await ContentService.instance.getEntriesByType<IProductFields>("product")).map((entry) => entry.fields)
 
