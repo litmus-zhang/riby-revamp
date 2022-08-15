@@ -6,20 +6,17 @@ import Footer from '../components/molecules/Footer'
 interface Props {}
 
 function Blog(props: Props) {
-    const {} = props
+  const {} = props
 
-    return (
-        <div>
-            <Header />
-            <div className='mt-16'>
-
-            </div>
-            Welcome to my Youtube channel
-            
-            <Footer />
-        <ChatWidget/>
-        </div>
-    )
+  return (
+    <div>
+      <Header />
+      <div className="mt-16"></div>
+      Welcome to my Youtube channel
+      <Footer />
+      <ChatWidget />
+    </div>
+  )
 }
 
 export default Blog

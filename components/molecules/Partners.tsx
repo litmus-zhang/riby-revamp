@@ -3,11 +3,9 @@ import React from 'react'
 interface Props {}
 
 function Partners(props: Props) {
-    const {} = props
+  const {} = props
 
-    return (
-        <>Partners Sections</>
-    )
+  return <>Partners Sections</>
 }
 
 export default Partners
